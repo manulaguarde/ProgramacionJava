@@ -4,6 +4,7 @@ package ud3;
 
 import java.util.Scanner;
 
+
 public class Hoja2Ejercicio18 {
 
 	public static void main(String[] args) {
@@ -11,9 +12,9 @@ public class Hoja2Ejercicio18 {
 	
 			
 			int num=0;
-			
-			while(num<=10){
 			int cont=0;
+			while(num<=10){
+			System.out.println("");
 				while(cont<=10) {
 					System.out.println(num+"X"+cont+"="+(num*cont));
 					cont++;
