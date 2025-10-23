@@ -17,15 +17,16 @@ public class Hoja2Ejercicio11 {
 		num1=entrada.nextInt();
 		num2=entrada.nextInt();
 		
+		i=num1;
 		if(num1<=num2) {
-			while(num1<=num2) {
-				System.out.println(num1);
-				num1++;
+			while(i<=num2) {
+				System.out.println(i);
+				i++;
 			}
 		}else {
-			while(num1>=num2) {
-				System.out.println(num1);
-				num1--;
+			while(i>=num2) {
+				System.out.println(i);
+				i--;
 			}
 		}
 	}
