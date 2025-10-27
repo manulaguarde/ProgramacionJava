@@ -5,7 +5,7 @@ package ud3;
 public class Hoja2Ejercicio17 {
 
 	public static void main(String[] args) {
-		int i;
+		/*int i;
 		
 		for(i=1;i<=10;i++) {
 			System.out.print(i+", ");
@@ -45,6 +45,17 @@ public class Hoja2Ejercicio17 {
 		System.out.println("\n");
 		for(i=91;i<=100;i++) {
 			System.out.print(i+", ");
+		}*/
+		
+		int i,j,cont=1;
+		//incremento fila
+		for (i=1;i<=10;i++) {
+			//dada una fila
+			for(j=1;j<=10;j++) {
+				System.out.print(cont+" ");
+				cont ++;
+			}
+			System.out.println();
 		}
 
 	}
