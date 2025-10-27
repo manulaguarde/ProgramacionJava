@@ -1,3 +1,1 @@
-INDEX VERSION 1.134+/home/alumno/Escritorio/Programacion/programacion/.metadata/.plugins/org.eclipse.jdt.core
-1175494123.index
-1865797976.index
+INDEX VERSION 1.134+C:\ProyectosGit\Programacion\programacion\.metadata\.plugins\org.eclipse.jdt.core
