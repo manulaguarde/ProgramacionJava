@@ -20,7 +20,7 @@ public class Hoja2Ejercicio16 {
 		}
 		for(cont=1;cont<=num;cont++) {
 			
-			System.out.println("*");
+			System.out.print("*");
 		}
 	}
 
