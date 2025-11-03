@@ -29,18 +29,7 @@ public class Hoja3EjercicioFigurasC {
 			}
 			numAsteriscos=1;
 			System.out.println();
-			/*numEspacios--;
-			System.out.print("*");
-			for(espaciosInt=1;espaciosInt<numEspaciosInt;espaciosInt++) {
-				System.out.print(" ");
-				
-			}
-			numEspaciosInt+=2;
-			for(asterisco=1;asterisco==numAsteriscos;asterisco--) {
-					System.out.print("*");
-				}
-			numAsteriscos=1*1;
-			System.out.println();*/
+
 		}
 		for(ultFila=1;ultFila<=(numFilas*2)-1;ultFila++) {
 			System.out.print("*");

@@ -17,13 +17,13 @@ public class Hoja2Ejercicio1 {
 		num=entrada.nextInt();
 		
 		if (num>0) {
-			for(cont=1;cont<=num;cont++) {
+			for(cont=1;cont<=num/2;cont++) {
 				
 				if(num%cont==0) {
 					suma++;
 				}
 			}
-			if (suma==2) {
+			if (suma==1) {
 				System.out.println("El número es primo");
 			}else {
 				System.out.println("El número no es primo");
