@@ -32,6 +32,10 @@ public class Hoja4Ejercicio7 {
 			
 		}while(cambio==true);
 		
+		for (i=0;i<TAM;i++) {
+			System.out.print(nums[i]+" ");
+		}
+		
 		
 	}
 
