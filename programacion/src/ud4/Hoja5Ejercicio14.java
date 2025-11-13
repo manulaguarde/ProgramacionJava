@@ -17,6 +17,7 @@ public class Hoja5Ejercicio14 {
 		multiplica(num);
 		
 	}
+	//si se muestra el resultado por pantalla dentro de la funcion no devuelve nada (void)
 	public static void multiplica(int num) {
 	
 		for(int i=0;i<=10;i++) {
