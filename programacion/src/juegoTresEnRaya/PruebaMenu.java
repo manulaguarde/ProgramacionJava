@@ -81,7 +81,7 @@ public class PruebaMenu {
 
 	}
 	// Tablero de 3x3, 9 casilleros 
-	// 7 filas x13 columas en espacio de código
+	// (7 filas x13 columas en espacio de código)
 	public static void dibujaTablero(){
 		// Iniciación variable del contenido
 		int i=1;
@@ -228,7 +228,7 @@ public class PruebaMenu {
 		return false;
 	}
 	public static void iniciar() {
-		
+		// Se vuelven a poner todos los valores del tablero vacíos
 		for(int i=0;i<9;i++) tablero[i]=' ';
 	}
 	public static boolean movimientoValido(int pos) {
