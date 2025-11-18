@@ -75,9 +75,11 @@ static int i=0;
 		for (i=0;i<TAM;i++) {
 			if(producto[i]==prodBuscado) {
 				System.out.println("El producto buscado es: " +producto[i]+", precio: "+precio[i]+" euros y stock: "+stock[i]);
+				return ; //es como hacer un break, porque no devuelve nada.
 				
 			}
 		}
+		System.out.println("Producto no encontrado");
 	}
 	public static void modificarPrecioStock() {
 	
@@ -98,9 +100,9 @@ static int i=0;
 				switch (opcion) {
 					case 1:
 						System.out.println("Introduce el precio nuevo del producto");
-						precioNuevo=entrada.nextDouble();
+						precioNuevo=entrada.nextDouble();//podria tambien poner directamente precio[i] en la entrada por teclado
 						
-						precio[i]=precioNuevo;
+						precio[i]=precioNuevo; 
 						break;
 					case 2:
 						System.out.println("Introduce el número del nuevo stock disponible del producto");
