@@ -4,7 +4,7 @@ public class PruebaTableroConNums {
 
 	public static void main(String[] args) {
 		
-		int[]array ={1,2,3,4,5,6,7,8,9};
+		/*int[]array ={1,2,3,4,5,6,7,8,9};
 		int j=0;
 		
 		for(int i=1;i<=7;i++) {
@@ -26,6 +26,16 @@ public class PruebaTableroConNums {
 			}else {
 				System.out.println("|");
 			}
+		}*/
+		int i=1;
+		System.out.println("-------------");
+		for(int filas=0;filas<3;filas++) {
+			for(int columnas=0;columnas<3;columnas++) {
+				System.out.print("| "+i+" ");
+				i++;
+			}
+			System.out.println("|\n-------------");
+			
 		}
 
 	}

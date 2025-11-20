@@ -233,7 +233,7 @@ public class PruebaMenu {
 	}
 	public static boolean movimientoValido(int pos) {
 		
-		if ((pos>=1 || pos<=9) && (tablero[pos-1]!='X' && tablero[pos-1]!='O')){
+		if ((pos>=1 && pos<=9) && (tablero[pos-1]!='X' && tablero[pos-1]!='O')){
 			
 			return true;
 		}else {
