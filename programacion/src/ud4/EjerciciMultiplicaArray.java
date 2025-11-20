@@ -7,6 +7,7 @@ public class EjerciciMultiplicaArray {
 	static Scanner entrada=new Scanner(System.in);
 	public static void main(String[] args) {
 		int opcion=0;
+		int[] array=new int[TAM];
 		do {
 			System.out.println("Ingresa una opcion\n"
 							+ "1. Para rellenar el array\n"
@@ -16,38 +17,40 @@ public class EjerciciMultiplicaArray {
 			
 			switch (opcion) {
 			case 1:
-				int[]array= rellenaArray();
+				
+				rellenaArray(array);
 				break;
 			case 2:
-				int []arrayMultiplicado=multiplicaArray(array);
+				int[] arrayMultiplicado=multiplicaArray(array);
 				
 				for(int i=0;i<TAM;i++) {
-					System.out.println();
+					System.out.println(arrayMultiplicado[i]);
 				}
 				break;
 			case 3:
-				System.out.println("has salido");
+				System.out.println("Has salido");
+				break;
 			default:
-				System.out.println("Opcion incorrecta");
+				System.out.println("Opción incorrecta");
 			}
 		}while(opcion!=3);
 
 	}
-	public static int[] rellenaArray(){
-		int[]numero=new int[TAM];
+	public static void rellenaArray(int []nums){
+		
 		for(int i=0;i<TAM;i++) {
 			System.out.println("Introduce un número");
-			numero[i]=entrada.nextInt();
+			nums[i]=entrada.nextInt();
 		}
-		return numero;
+		
 	}
-	public static int[] multiplicaArray(int[] array) { //tiene que devolver obligatoriamente el array
+	public static int[] multiplicaArray(int[] nums) { //tiene que devolver obligatoriamente el array
 		int[]arrayMultPor2=new int[10];
 		for (int i =0; i<TAM; i++) {
 			
-			arrayMultPor2[i]= array[i]*2;
+			arrayMultPor2[i]= nums[i]*2;
 		}
-		return array;
+		return arrayMultPor2;
 	}
 
 }
