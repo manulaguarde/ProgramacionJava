@@ -13,15 +13,12 @@ package juegoTresEnRaya;
 
 import java.util.Scanner;
 
-public class PruebaMenu {
+public class JuegoTresEnRaya {
 	// Declaración variables globales
 	static Scanner entrada = new Scanner(System.in);
 	static char[] tablero = new char[9];
 	// Contadores para estadísticas
-	static int victoriasJugador1 = 0, victoriasJugador2 = 0, empates = 0, k=0;
-	static char ficha1,ficha2;
-	static char [][] ultimaPartida=new char [9][9];
-	
+	static int victoriasJugador1 = 0, victoriasJugador2 = 0, empates = 0;
 
 	public static void main(String[] args) {
 
@@ -29,16 +26,13 @@ public class PruebaMenu {
 
 		do {
 			System.out.println(
-					"1. Jugar una partida\n" + "2. Mostrar estadísticas\n" + "3. Salir\n" + "4. Última Partida\n"
-					+ "Seleccione una opción:");
+					"1. Jugar una partida\n" + "2. Mostrar estadísticas\n" + "3. Salir\n" + "Seleccione una opción:");
 			opcion = entrada.nextInt();
-			entrada.nextLine();
 
 			int i = 0;
 			switch (opcion) {
 			case 1:
-				elijeFicha();
-				//Tablero orientativo para conocer las posiciones
+				// Tablero orientativo para conocer las posiciones
 				dibujaTablero();
 
 				do {
@@ -52,18 +46,17 @@ public class PruebaMenu {
 					}
 					// Movimiento Jugador 1 en el tablero
 					mueveJugador1(movimiento1);
-					rellenarUltimaPartida(tablero);
 					// Victoria Jugador 1
 					if (ganaJugador1()) {
 						System.out.println("Ha ganado el jugador 1!");
-						victoriasJugador1 += 1;
+						victoriasJugador1++;
 						break;
 					}
 					i++;
 					// Si no hay ganador y no quedan movimientos
 					if (i >= 9) {
 						System.out.println("Empate");
-						empates += 1;
+						empates++;
 					} else {
 						// Movimiento Jugador 2
 						System.out.println("Introduzca movimiento (Jugador 2)");
@@ -75,11 +68,10 @@ public class PruebaMenu {
 						}
 						// Movimiento valido Jugador 2 en el tablero
 						mueveJugador2(movimiento2);
-						rellenarUltimaPartida(tablero);
 					}
 					if (ganaJugador2()) {
 						System.out.println("Ha ganado el jugador 2!");
-						victoriasJugador2 += 1;
+						victoriasJugador2++;
 						break;
 					}
 					i++;
@@ -98,10 +90,6 @@ public class PruebaMenu {
 			case 3:
 				System.out.println("Has salido");
 				break;
-			case 4:
-				mostrarUltimaPartida();
-				break;
-				
 			default:
 				System.out.println("Opcion incorrecta");
 			}
@@ -142,7 +130,7 @@ public class PruebaMenu {
 	}
 
 	public static void mueveJugador1(int pos) {
-		/*int i = 0;
+		int i = 0;
 		// Porción de codigo para dibujar el tablero 3x3 (ver línea 101)
 		for (int filas = 1; filas <= 7; filas++) {
 			if (filas % 2 != 0)
@@ -158,7 +146,7 @@ public class PruebaMenu {
 						// Si i coincide con el número de movimiento
 						if (i == pos - 1) {
 							// imprime movimieno y lo almacena en el array
-							tablero[i] = ficha1;
+							tablero[i] = 'X';
 							System.out.print(tablero[i]);
 						} else {
 							// Sino imprime el casillero vacío que correspone con la posicion vacía del
@@ -170,23 +158,6 @@ public class PruebaMenu {
 				}
 			}
 			System.out.println();
-		}*/
-		int i=0;
-		System.out.println("-------------");
-		for(int filas=0;filas<3;filas++) {
-			for(int columnas=0;columnas<3;columnas++) {
-				if(i==pos-1) {
-					tablero[i]=ficha1;
-					System.out.print("| "+tablero[i]+" ");
-					i++;
-				}
-				else {
-					System.out.print("| "+tablero[i]+" ");
-					i++;
-				}
-			}
-			System.out.println("|\n-------------");
-			
 		}
 
 	}
@@ -194,7 +165,7 @@ public class PruebaMenu {
 	public static void mueveJugador2(int pos) {
 		int i = 0;
 		// Porción de codigo para dibujar el tablero 3x3 (ver línea 101)
-		/*for (int filas = 1; filas <= 7; filas++) {
+		for (int filas = 1; filas <= 7; filas++) {
 			if (filas % 2 != 0)
 				System.out.print("-------------");
 			if (filas % 2 == 0) {
@@ -207,7 +178,7 @@ public class PruebaMenu {
 						// Si i coincide con el número de movimiento
 						if (i == pos - 1) {
 							// imprime movimieno y lo almacena en el array
-							tablero[i] = ficha2;
+							tablero[i] = 'O';
 							System.out.print(tablero[i]);
 						} else {
 							// Sino imprime el casillero vacío que correspone con la posicion vacía del
@@ -219,51 +190,35 @@ public class PruebaMenu {
 				}
 			}
 			System.out.println();
-		}*/
-		System.out.println("-------------");
-		for(int filas=0;filas<3;filas++) {
-			for(int columnas=0;columnas<3;columnas++) {
-				if(i==pos-1) {
-					tablero[i]=ficha2;
-					System.out.print("| "+tablero[i]+" ");
-					i++;
-				}
-				else {
-					System.out.print("| "+tablero[i]+" ");
-					i++;
-				}
-			}
-			System.out.println("|\n-------------");
-			
 		}
 	}
 
 	public static boolean ganaJugador1() {
 		// Victorias horizontales
-		if (tablero[0] == ficha1 && tablero[1] == ficha1 && tablero[2] == ficha1) {
+		if (tablero[0] == 'X' && tablero[1] == 'X' && tablero[2] == 'X') {
 			return true;
 		}
-		if (tablero[3] == ficha1 && tablero[4] == ficha1 && tablero[5] == ficha1) {
+		if (tablero[3] == 'X' && tablero[4] == 'X' && tablero[5] == 'X') {
 			return true;
 		}
-		if (tablero[6] == ficha1 && tablero[7] == ficha1 && tablero[8] == ficha1) {
+		if (tablero[6] == 'X' && tablero[7] == 'X' && tablero[8] == 'X') {
 			return true;
 		}
 		// Victorias verticales
-		if (tablero[0] == ficha1 && tablero[3] == ficha1 && tablero[6] == ficha1) {
+		if (tablero[0] == 'X' && tablero[3] == 'X' && tablero[6] == 'X') {
 			return true;
 		}
-		if (tablero[1] == ficha1 && tablero[4] == ficha1 && tablero[7] == ficha1) {
+		if (tablero[1] == 'X' && tablero[4] == 'X' && tablero[7] == 'X') {
 			return true;
 		}
-		if (tablero[2] == ficha1 && tablero[5] == ficha1 && tablero[8] == ficha1) {
+		if (tablero[2] == 'X' && tablero[5] == 'X' && tablero[8] == 'X') {
 			return true;
 		}
 		// Victorias en diagonal
-		if (tablero[0] == ficha1 && tablero[4] == ficha1 && tablero[8] == ficha1) {
+		if (tablero[0] == 'X' && tablero[4] == 'X' && tablero[8] == 'X') {
 			return true;
 		}
-		if (tablero[2] == ficha1 && tablero[4] == ficha1 && tablero[6] == ficha1) {
+		if (tablero[2] == 'X' && tablero[4] == 'X' && tablero[6] == 'X') {
 			return true;
 		}
 
@@ -273,30 +228,30 @@ public class PruebaMenu {
 
 	public static boolean ganaJugador2() {
 		// Victorias horizontales
-		if (tablero[0] == ficha2 && tablero[1] == ficha2 && tablero[2] == ficha2) {
+		if (tablero[0] == 'O' && tablero[1] == 'O' && tablero[2] == 'O') {
 			return true;
 		}
-		if (tablero[3] == ficha2 && tablero[4] == ficha2 && tablero[5] == ficha2) {
+		if (tablero[3] == 'O' && tablero[4] == 'O' && tablero[5] == 'O') {
 			return true;
 		}
-		if (tablero[6] == ficha2 && tablero[7] == ficha2 && tablero[8] == ficha2) {
+		if (tablero[6] == 'O' && tablero[7] == 'O' && tablero[8] == 'O') {
 			return true;
 		}
 		// Victorias verticales
-		if (tablero[0] == ficha2 && tablero[3] == ficha2 && tablero[6] == ficha2) {
+		if (tablero[0] == 'O' && tablero[3] == 'O' && tablero[6] == 'O') {
 			return true;
 		}
-		if (tablero[1] == ficha2 && tablero[4] == ficha2 && tablero[7] == ficha2) {
+		if (tablero[1] == 'O' && tablero[4] == 'O' && tablero[7] == 'O') {
 			return true;
 		}
-		if (tablero[2] == ficha2 && tablero[5] == ficha2 && tablero[8] == ficha2) {
+		if (tablero[2] == 'O' && tablero[5] == 'O' && tablero[8] == 'O') {
 			return true;
 		}
 		// Victorias en diagonal
-		if (tablero[0] == ficha2 && tablero[4] == ficha2 && tablero[8] == ficha2) {
+		if (tablero[0] == 'O' && tablero[4] == 'O' && tablero[8] == 'O') {
 			return true;
 		}
-		if (tablero[2] == ficha2 && tablero[4] == ficha2 && tablero[6] == ficha2) {
+		if (tablero[2] == 'O' && tablero[4] == 'O' && tablero[6] == 'O') {
 			return true;
 		}
 
@@ -312,7 +267,7 @@ public class PruebaMenu {
 	public static boolean movimientoValido(int pos) {
 		// Se comprueba que el movimiento (pasado por parámetro) sea entre 1 y 9
 		// (casilleros válidos) y que se encuentre vacío
-		if ((pos >= 1 && pos <= 9) && (tablero[pos - 1] != ficha1 && tablero[pos - 1] != ficha2)) {
+		if ((pos >= 1 && pos <= 9) && (tablero[pos - 1] != 'X' && tablero[pos - 1] != 'O')) {
 
 			return true;
 		} else {
@@ -330,45 +285,5 @@ public class PruebaMenu {
 			}
 		}
 		return false;
-	}
-	public static void elijeFicha() {
-		System.out.println("Jugador 1: Elije tu ficha ('X' / 'O')");
-		ficha1=entrada.nextLine().charAt(0);
-		while (ficha1!= 'X' && ficha1!='O') {
-			System.out.println("Ficha incorrecta. Elije denuevo ('X' / 'O')");
-			ficha1=entrada.nextLine().charAt(0);
-		}
-		if (ficha1=='X') {
-			ficha2='O';
-		}
-		else if (ficha1=='O') {
-			ficha2='X';
-		}
-
-		//entrada.nextLine();
-		/*System.out.println("Jugador 2: Elije tu ficha");
-		ficha2=entrada.nextLine().charAt(0);*/
-		//entrada.nextLine();
-	}
-	public static void rellenarUltimaPartida(char []tablero){
-		for (int j=0;j<9;j++){
-			ultimaPartida[k][j]=tablero[j];
-
-		}
-		k++;
-	}
-	public static void mostrarUltimaPartida() {
-		for(int i=0;i<9;i++) {	
-			int j=0;
-			System.out.println("-------------");
-			for(int filas=0;filas<3;filas++) {
-				for(int columnas=0;columnas<3;columnas++) {
-					System.out.print("| "+ultimaPartida[i][j]+" ");
-					j++;
-				}
-				System.out.println("|\n-------------");
-				
-			}
-		}
 	}
 }
