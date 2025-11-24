@@ -8,7 +8,7 @@ public class JuegoTresEnRayaPlus {
 	static Scanner entrada = new Scanner(System.in);
 	static char[] tablero = new char[9];
 	// Contadores para estadísticas y última partida
-	static int victoriasJugador1 = 0, victoriasJugador2 = 0, empates = 0, k = 0;
+	static int victoriasJugador1 = 0, victoriasJugador2 = 0, empates = 0, k = 0, a=0;
 	static char[][] ultimaPartida = new char[9][9];
 
 	public static void main(String[] args) {
@@ -70,8 +70,12 @@ public class JuegoTresEnRayaPlus {
 					}
 					i++;
 				} while (i < 9); // Cantidad de movimientos posibles
-
 				// Reinicio de tablero vacío
+				if (i<9) {
+					a=i+1;
+				}else {
+					a=i-1;
+				}
 				iniciar();
 				k=0;
 
@@ -83,7 +87,8 @@ public class JuegoTresEnRayaPlus {
 						+ " partidas que acabaron en empate");
 				break;
 			case 3:
-				mostrarUltimaPartida();
+				System.out.println("Así fueron las jugadas de la última partida");
+				mostrarUltimaPartida(a);
 				break;
 
 			case 4:
@@ -263,8 +268,10 @@ public class JuegoTresEnRayaPlus {
 
 	// Muestra el estado del tablero y el movimiento hecho por el jugador turno por
 	// turno
-	public static void mostrarUltimaPartida() {
-		for (int i = 0; i < 9; i++) {
+	public static void mostrarUltimaPartida(int a) {
+		
+		for (int i = 0; i < a; i++) {
+			System.out.println("Jugada "+(i+1));
 			int j = 0;
 			System.out.println("-------------");
 			for (int filas = 0; filas < 3; filas++) {
