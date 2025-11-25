@@ -24,16 +24,33 @@ public class HojaArraysBidimensionalesEjercicio21 {
 			    {2, 8, 7, 4, 1, 9, 6, 3, 5},
 			    {3, 4, 5, 2, 8, 6, 1, 7, 9}
 			};
-		int k=0,l=0;
-		for (int i=0;i<9;i++) {
-			for (int j=0;j<9;j++) {
-				if(sudoku[k][l]==sudoku[i][j]) {
-					
+		boolean comprueboFilas=true, comprueboColumnas=true;
+		
+		for(int k=0;k<9;k++) {
+			for (int i=0;i<9;i++) {
+				for (int j=1;j<9;j++) {
+					if(sudoku[k][i]==sudoku[i][j]) {
+						comprueboFilas=false;
+					}
+				}
+				
+			}
+		}
+		for(int k=0;k<9;k++) {
+			for (int i=0;i<9;i++) {
+				for (int j=1;j<9;j++) {
+					if(sudoku[i][k]==sudoku[j][i]) {
+						comprueboColumnas=false;
+					}
 				}
 			}
-			
 		}
-
+		if (comprueboFilas==true && comprueboColumnas==true) {
+			System.out.println("Sudoku válido");
+		}
+		else {
+			System.out.println("Sudoku no válido");
+		}
 	}
 
 }
