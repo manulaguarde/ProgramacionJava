@@ -24,11 +24,14 @@ public class HojaArraysBidimensionalesEjercicio21 {
 			    {2, 8, 7, 4, 1, 9, 6, 3, 5},
 			    {3, 4, 5, 2, 8, 6, 1, 7, 9}
 			};
-		
+		int k=0,l=0;
 		for (int i=0;i<9;i++) {
 			for (int j=0;j<9;j++) {
-				sudoku[i][j]
+				if(sudoku[k][l]==sudoku[i][j]) {
+					
+				}
 			}
+			
 		}
 
 	}
