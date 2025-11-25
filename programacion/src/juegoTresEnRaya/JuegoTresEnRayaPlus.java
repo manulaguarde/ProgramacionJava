@@ -70,12 +70,12 @@ public class JuegoTresEnRayaPlus {
 					}
 					i++;
 				} while (i < 9); // Cantidad de movimientos posibles
-				// Reinicio de tablero vacío
 				if (i<9) {
 					a=i+1;
 				}else {
 					a=i-1;
 				}
+				// Reinicio de tablero vacío
 				iniciar();
 				k=0;
 
@@ -271,6 +271,8 @@ public class JuegoTresEnRayaPlus {
 	public static void mostrarUltimaPartida(int a) {
 		
 		for (int i = 0; i < a; i++) {
+			System.out.println("(press enter)");
+			entrada.nextLine();
 			System.out.println("Jugada "+(i+1));
 			
 			int j = 0;
