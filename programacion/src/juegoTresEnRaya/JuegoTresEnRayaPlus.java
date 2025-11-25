@@ -272,6 +272,7 @@ public class JuegoTresEnRayaPlus {
 		
 		for (int i = 0; i < a; i++) {
 			System.out.println("Jugada "+(i+1));
+			
 			int j = 0;
 			System.out.println("-------------");
 			for (int filas = 0; filas < 3; filas++) {
