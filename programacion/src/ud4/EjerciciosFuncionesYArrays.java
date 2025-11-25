@@ -16,16 +16,15 @@ public class EjerciciosFuncionesYArrays {
 		}
 	}
 	public static void rellenaArrays(int[]nums1, int[]nums2) {
-		int numero;
 		for (int i=0;i<5;i++) {
 			System.out.println("Ingrese un número");
-			numero=entrada.nextInt();
-			nums1[i]=numero;
+			nums1[i]=entrada.nextInt();
+			
 		}
 		for (int i=0;i<5;i++) {
 			System.out.println("Ingrese un número");
-			numero=entrada.nextInt();
-			nums2[i]=numero;
+			nums2[i]=entrada.nextInt();
+			
 		}
 	}
 	public static int[] sumaArrays(int[]nums1, int[] nums2) {
