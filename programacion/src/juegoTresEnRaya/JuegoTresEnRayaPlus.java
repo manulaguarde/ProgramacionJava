@@ -10,6 +10,7 @@ public class JuegoTresEnRayaPlus {
 	// Contadores para estadísticas y última partida
 	static int victoriasJugador1 = 0, victoriasJugador2 = 0, empates = 0, k = 0, a=0;
 	static char[][] ultimaPartida = new char[9][9];
+	static char ficha1, ficha2;
 
 	public static void main(String[] args) {
 
@@ -25,6 +26,7 @@ public class JuegoTresEnRayaPlus {
 			switch (opcion) {
 			case 1:
 				// Tablero orientativo para conocer las posiciones
+				seleccionarFichas();
 				dibujaTablero();
 
 				do {
@@ -123,7 +125,7 @@ public class JuegoTresEnRayaPlus {
 		for (int filas = 0; filas < 3; filas++) {
 			for (int columnas = 0; columnas < 3; columnas++) {
 				if (i == pos - 1) {
-					tablero[i] = 'X';
+					tablero[i] = ficha1;
 					System.out.print("| " + tablero[i] + " ");
 				} else {
 					System.out.print("| " + tablero[i] + " ");
@@ -143,7 +145,7 @@ public class JuegoTresEnRayaPlus {
 		for (int filas = 0; filas < 3; filas++) {
 			for (int columnas = 0; columnas < 3; columnas++) {
 				if (i == pos - 1) {
-					tablero[i] = 'O';
+					tablero[i] = ficha2;
 					System.out.print("| " + tablero[i] + " ");
 				} else {
 					System.out.print("| " + tablero[i] + " ");
@@ -157,30 +159,30 @@ public class JuegoTresEnRayaPlus {
 	// Comprueba si gana el jugador 1
 	public static boolean ganaJugador1() {
 		// Victorias horizontales
-		if (tablero[0] == 'X' && tablero[1] == 'X' && tablero[2] == 'X') {
+		if (tablero[0] == ficha1 && tablero[1] == ficha1 && tablero[2] == ficha1) {
 			return true;
 		}
-		if (tablero[3] == 'X' && tablero[4] == 'X' && tablero[5] == 'X') {
+		if (tablero[3] == ficha1 && tablero[4] == ficha1 && tablero[5] == ficha1) {
 			return true;
 		}
-		if (tablero[6] == 'X' && tablero[7] == 'X' && tablero[8] == 'X') {
+		if (tablero[6] == ficha1 && tablero[7] == ficha1 && tablero[8] == ficha1) {
 			return true;
 		}
 		// Victorias verticales
-		if (tablero[0] == 'X' && tablero[3] == 'X' && tablero[6] == 'X') {
+		if (tablero[0] == ficha1 && tablero[3] == ficha1 && tablero[6] == ficha1) {
 			return true;
 		}
-		if (tablero[1] == 'X' && tablero[4] == 'X' && tablero[7] == 'X') {
+		if (tablero[1] == ficha1 && tablero[4] == ficha1 && tablero[7] == ficha1) {
 			return true;
 		}
-		if (tablero[2] == 'X' && tablero[5] == 'X' && tablero[8] == 'X') {
+		if (tablero[2] == ficha1 && tablero[5] == ficha1 && tablero[8] == ficha1) {
 			return true;
 		}
 		// Victorias en diagonal
-		if (tablero[0] == 'X' && tablero[4] == 'X' && tablero[8] == 'X') {
+		if (tablero[0] == ficha1 && tablero[4] == ficha1 && tablero[8] == ficha1) {
 			return true;
 		}
-		if (tablero[2] == 'X' && tablero[4] == 'X' && tablero[6] == 'X') {
+		if (tablero[2] == ficha1 && tablero[4] == ficha1 && tablero[6] == ficha1) {
 			return true;
 		}
 
@@ -191,30 +193,30 @@ public class JuegoTresEnRayaPlus {
 	// Comprueba si gana el jugador 2
 	public static boolean ganaJugador2() {
 		// Victorias horizontales
-		if (tablero[0] == 'O' && tablero[1] == 'O' && tablero[2] == 'O') {
+		if (tablero[0] == ficha2 && tablero[1] == ficha2 && tablero[2] == ficha2) {
 			return true;
 		}
-		if (tablero[3] == 'O' && tablero[4] == 'O' && tablero[5] == 'O') {
+		if (tablero[3] == ficha2 && tablero[4] == ficha2 && tablero[5] == ficha2) {
 			return true;
 		}
-		if (tablero[6] == 'O' && tablero[7] == 'O' && tablero[8] == 'O') {
+		if (tablero[6] == ficha2 && tablero[7] == ficha2 && tablero[8] == ficha2) {
 			return true;
 		}
 		// Victorias verticales
-		if (tablero[0] == 'O' && tablero[3] == 'O' && tablero[6] == 'O') {
+		if (tablero[0] == ficha2 && tablero[3] == ficha2 && tablero[6] == ficha2) {
 			return true;
 		}
-		if (tablero[1] == 'O' && tablero[4] == 'O' && tablero[7] == 'O') {
+		if (tablero[1] == ficha2 && tablero[4] == ficha2 && tablero[7] == ficha2) {
 			return true;
 		}
-		if (tablero[2] == 'O' && tablero[5] == 'O' && tablero[8] == 'O') {
+		if (tablero[2] == ficha2 && tablero[5] == ficha2 && tablero[8] == ficha2) {
 			return true;
 		}
 		// Victorias en diagonal
-		if (tablero[0] == 'O' && tablero[4] == 'O' && tablero[8] == 'O') {
+		if (tablero[0] == ficha2 && tablero[4] == ficha2 && tablero[8] == ficha2) {
 			return true;
 		}
-		if (tablero[2] == 'O' && tablero[4] == 'O' && tablero[6] == 'O') {
+		if (tablero[2] == ficha2 && tablero[4] == ficha2 && tablero[6] == ficha2) {
 			return true;
 		}
 
@@ -236,7 +238,7 @@ public class JuegoTresEnRayaPlus {
 	public static boolean movimientoValido(int pos) {
 		// Se comprueba que el movimiento (pasado por parámetro) sea entre 1 y 9
 		// (casilleros válidos) y que se encuentre vacío
-		if ((pos >= 1 && pos <= 9) && (tablero[pos - 1] != 'X' && tablero[pos - 1] != 'O')) {
+		if ((pos >= 1 && pos <= 9) && (tablero[pos - 1] != ficha1 && tablero[pos - 1] != ficha2)) {
 
 			return true;
 		} else {
@@ -271,8 +273,8 @@ public class JuegoTresEnRayaPlus {
 	public static void mostrarUltimaPartida(int a) {
 		
 		for (int i = 0; i < a; i++) {
-			System.out.println("(press enter)");
-			entrada.nextLine();
+			//System.out.println("(press enter)");
+			//entrada.nextLine();
 			System.out.println("Jugada "+(i+1));
 			
 			int j = 0;
@@ -285,6 +287,19 @@ public class JuegoTresEnRayaPlus {
 				System.out.println("|\n-------------");
 
 			}
+		}
+	}
+	public static void seleccionarFichas() {
+		System.out.println("Jugador 1 elije ficha ('X'/'O'): ");
+		ficha1=entrada.nextLine().charAt(0);
+		while(ficha1!='X' && ficha1!='O') {
+			System.out.println("Ficha incorrecta, ingrese 'X' o 'O'");
+			ficha1=entrada.nextLine().charAt(0);
+		}
+		if (ficha1=='X') {
+			ficha2='O';
+		}else if(ficha1=='O'){
+			ficha2='X';
 		}
 	}
 }
