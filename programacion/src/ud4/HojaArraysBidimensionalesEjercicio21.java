@@ -24,33 +24,62 @@ public class HojaArraysBidimensionalesEjercicio21 {
 			    {2, 8, 7, 4, 1, 9, 6, 3, 5},
 			    {3, 4, 5, 2, 8, 6, 1, 7, 9}
 			};
-		boolean comprueboFilas=true, comprueboColumnas=true;
+		boolean comprueboFilas=true, comprueboColumnas=true, comprueboCubos=true;
 		
-		int k=0, j=1;
-		for (int i=0;i<9;i++) {
-			while(j<9) {
-				if(sudoku[i][k]==sudoku[i][j]) {
+		//Filas
+		int j;
+		/*for (int i=0;i<9;i++) {
+			for (int k=0; k<9; k++) {
+				j=k+1;
+				while(j<9) {
+					if(sudoku[i][k]==sudoku[i][j]) {
 						comprueboFilas=false;
-				}
-				if(k<9) {
-					k++;
+					}
+					j++;
 				}
 			}
 		}
 		
-
+		//Columnas
 		for (int i=0;i<9;i++) {
-			
-			
-			if(sudoku[k][i]==sudoku[j][i]) {
-				comprueboColumnas=false;
+			for (int k=0; k<9; k++) {
+				j=k+1;
+				while(j<9) {
+					if(sudoku[k][i]==sudoku[j][i]) {
+						comprueboColumnas=false;
+					}
+					j++;
+				}
 			}
-			if(j<9 && k<9) {
-				k++;
+		}*/
+		//Cubos
+		int k=0;
+		for (int l=0; l<3; l++) {
+			for (int m=0; m<3; m++){
+				int i=m*3;
+				k=m*3;
+				while( i<3) {
+					while (k<3) {
+						j=k+1;
+						while(j<3) {
+							if(sudoku[i][k]==sudoku[i][j]) {
+								comprueboCubos=false;
+							}
+							j++;
+						}
+						k++;
+					}
+					i++;
+					k=m*3;
+				}
 			}
 		}
+			
+			
+		
 		
 		if (comprueboFilas==true && comprueboColumnas==true) {
+		//if (comprueboCubos==true) {
 			System.out.println("Sudoku válido");
 		}
 		else {
