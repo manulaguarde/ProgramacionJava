@@ -89,7 +89,6 @@ public class JuegoTresEnRayaPlus2 {
 						+ " partidas que acabaron en empate");
 				break;
 			case 3:
-				System.out.println("Así fueron las jugadas de la última partida");
 				mostrarUltimaPartida(a);
 				break;
 
@@ -276,12 +275,13 @@ public class JuegoTresEnRayaPlus2 {
 		System.out.println("Ingresa 1 para ver la partida de la primer jugada a la ultima\n"
 							+ "Ingresa 2 para ver la partida de la ultima jugada a la primera");
 		opcion=entrada.nextInt();
-		
+		entrada.nextLine();
+		System.out.println("Así fueron las jugadas de la última partida");
 		if(opcion==1) {
 		
 			for (int i = 0; i < a; i++) {
-				//System.out.println("(press enter)");
-				//entrada.nextLine();
+				System.out.println("(press enter)");
+				entrada.nextLine();
 				System.out.println("Jugada "+(i+1));
 				
 				int j = 0;
@@ -298,8 +298,8 @@ public class JuegoTresEnRayaPlus2 {
 		}
 		else if(opcion==2) {
 			for (int i = a-1; i >= 0; i--) {
-				//System.out.println("(press enter)");
-				//entrada.nextLine();
+				System.out.println("(press enter)");
+				entrada.nextLine();
 				System.out.println("Jugada "+(i+1));
 				
 				int j = 0;
