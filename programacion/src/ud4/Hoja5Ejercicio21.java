@@ -19,10 +19,13 @@ public class Hoja5Ejercicio21 {
 		System.out.println(num+" elevado a la potencia "+potencia+" es "+mostrarNumElevado(num,potencia));
 	}
 	public static int mostrarNumElevado(int a, int b) {
-		if(a==b) {
-			
+		int cont=0;
+		if(b==cont) {
+			return a;
 		}else {
+			cont++;
 			return mostrarNumElevado(a)*a;
+
 		}
 		
 	}
