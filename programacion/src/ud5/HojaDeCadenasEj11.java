@@ -38,16 +38,11 @@ public class HojaDeCadenasEj11 {
 
 	public static boolean noContieneDosPuntos(String email) {
 
-		int arroba = email.indexOf('@');
-		String ultimaParte = "";
-		for (int i = arroba; i < email.length(); i++) {
-			ultimaParte += email.charAt(i);
-		}
-
-		int resultado = ultimaParte.indexOf('.');
-		if (resultado == ultimaParte.lastIndexOf('.') && resultado > 0) {
+		String[] partes=email.split("@");
+		
+		if(partes[1].indexOf("..")==-1)
 			return true;
-		}
+		
 		return false;
 
 	}
