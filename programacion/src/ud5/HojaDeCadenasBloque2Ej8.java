@@ -24,11 +24,9 @@ public class HojaDeCadenasBloque2Ej8 {
 
 	}
 	public static boolean contieneElCaracter(String cad,char car) {
-		for(int i=0;i<cad.length();i++) {
-			if (car==cad.charAt(i)) {
-				return true;
-			}
-		}
+		if(cad.indexOf(car)>0)
+			return true;
+		
 		return false;
 	}
 	public static void muestraPosicion(String cad,char car) {
