@@ -15,8 +15,8 @@ public class HojaEjerciciosNumAleatoriosEj7 {
 		char [] apuestaPleno= {'0','1','2','M'};
 		
 		//System.out.println("           Ap 1 Ap 2 Ap3");
-		for (int i=0;i<15;i++) {
-			System.out.print("Partido "+i+": ");
+		for (int i=0;i<14;i++) {
+			System.out.print("Partido "+(i+1)+": ");
 			for (int j=0;j<3;j++) {
 				System.out.print("Apuesta "+(j+1)+": "+apuesta[genAle.nextInt(3)]+" |");
 			}
