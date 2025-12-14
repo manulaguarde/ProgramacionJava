@@ -12,36 +12,36 @@ import java.util.Scanner;
 public class HojaEjerciciosNumAleatoriosEj13Bis {
 
 	public static void main(String[] args) {
-		Random genAle= new Random();
-		Scanner entrada= new Scanner(System.in);
-		int i=0, num=101, numMayor=100, numMenor=1,aux;
-		
-		boolean numAdivinado=false;
-		
-		System.out.println("Piensa un número del 1 al 100");
-		numMayor=genAle.nextInt(101);
-		System.out.println("Tu número es "+numMayor+"? s/n");
-		char opcion =entrada.nextLine().charAt(0);
-		
+		Scanner entrada = new Scanner(System.in);
+		Random genAle = new Random();
+		int min = 0, max = 50, numAle, i=1;
+		String opcion, mayorMenor;
+
+		System.out.println("Piensa un número entre 0 y 100");
+		numAle = 50;
+
 		do {
-			if (opcion=='n') {
-				System.out.println("Tu número es mayor o menor que ese número?");
-				String mayorMenor=entrada.nextLine();
-				
-					if(mayorMenor=="menor") {
-						//numMenor=numMayor;
-						numMayor=genAle.nextInt(numMayor);
-						System.out.println("Tu número es "+numMayor+"? s/n");
-						opcion=entrada.nextLine().charAt(0);
-					}else if(mayorMenor=="mayor"){
-						
-					}
-			}else {
-				numAdivinado=true;
+			System.out.println("Tu número es: " + numAle + "? si/no");
+			opcion = entrada.nextLine();
+			if (opcion.equalsIgnoreCase("no") && i<5) {
+				System.out.println("Tu número es mayor o menor que " + numAle + "?");
+				mayorMenor=entrada.nextLine();
+				if (mayorMenor.equalsIgnoreCase("mayor")) {
+					min=numAle;
+					numAle=genAle.nextInt(max-min)+min;
+				}else if (mayorMenor.equalsIgnoreCase("menor")) {
+					max=numAle;
+					numAle=genAle.nextInt(max-min)+min;
+				}
 			}
 			i++;
-			aux=numMayor;
-		}while(numAdivinado==false || i<5);
+		} while (opcion.equalsIgnoreCase("no") && i<6);
+		
+		if (opcion.equalsIgnoreCase("si")) {
+			System.out.println("Adiviné tu número");
+		}else {
+			System.out.println("No logré adivinar tu número");
+		}
 	}
 
 }

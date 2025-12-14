@@ -9,40 +9,39 @@ import java.util.Scanner;
  * número que estás pensando es mayor o menor que el que te acaba de decir.
  */
 public class HojaEjerciciosNumAleatoriosEj13 {
-	static Random genAle=new Random();
+	static Random genAle = new Random();
+
 	public static void main(String[] args) {
-		Scanner entrada=new Scanner(System.in);
-		int num,i=0;
-		char opcion;
-		String mayorMenor;
-		
+		Scanner entrada = new Scanner(System.in);
+		Random genAle = new Random();
+		int min = 0, max = 100, numAle, i=1;
+		String opcion, mayorMenor;
+
 		System.out.println("Piensa un número entre 0 y 100");
-		num=genAle.nextInt(101);
-		
-		
-		System.out.println("Tu número es: "+num+"? s/n");
-		opcion=entrada.nextLine().charAt(0);
-		if(!numAdivinado(opcion)) {
-			do {
-				System.out.println("Tu número es mayor? o menor?");
+		numAle = genAle.nextInt(101);
+
+		do {
+			System.out.println("Tu número es: " + numAle + "? si/no");
+			opcion = entrada.nextLine();
+			if (opcion.equalsIgnoreCase("no") && i<5) {
+				System.out.println("Tu número es mayor o menor que " + numAle + "?");
 				mayorMenor=entrada.nextLine();
-			}while (!esMayorOMenor(num,mayorMenor)); 
-				
-			
+				if (mayorMenor.equalsIgnoreCase("mayor")) {
+					min=numAle;
+					numAle=genAle.nextInt(max-min)+min;
+				}else if (mayorMenor.equalsIgnoreCase("menor")) {
+					max=numAle;
+					numAle=genAle.nextInt(max-min)+min;
+				}
+			}
+			i++;
+		} while (opcion.equalsIgnoreCase("no") && i<6);
+		
+		if (opcion.equalsIgnoreCase("si")) {
+			System.out.println("Adiviné tu número");
+		}else {
+			System.out.println("No logré adivinar tu número");
 		}
-		
-		
-	}
-	public static int esMayorOMenor(int num, String mayor) {
-		if (mayor=="mayor") {
-			num=genAle.nextInt()
-		}
-	}
-	public static boolean numAdivinado (char opcion) {
-		if (opcion=='s')
-			return true;
-		
-		return false;
 	}
 
 }
