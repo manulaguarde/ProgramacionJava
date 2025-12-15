@@ -9,7 +9,6 @@ import java.util.Scanner;
  * número que estás pensando es mayor o menor que el que te acaba de decir.
  */
 public class HojaEjerciciosNumAleatoriosEj13 {
-	static Random genAle = new Random();
 
 	public static void main(String[] args) {
 		Scanner entrada = new Scanner(System.in);
