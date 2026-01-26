@@ -16,6 +16,7 @@ public class HojaEjerciciosNumAleatoriosEj9 {
 		
 		do {
 			num=genAle.nextInt(51)*2;
+			System.out.println(num);
 			cont++;
 		}while(num!=24);
 
