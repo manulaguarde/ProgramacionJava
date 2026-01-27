@@ -7,6 +7,8 @@ public class Rectangulo_Uso {
 		Rectangulo r1=new Rectangulo(2, 3);
 		System.out.println(r1.calculaPerimetro()+" es el perimetro de r1 "
 				+ "y "+r1.calculaArea()+" es su area");
+		
+		r1.cambiaBase(5);
 
 		Rectangulo r2=new Rectangulo(8, 20);
 		System.out.println(r2.calculaPerimetro()+" es el perimetro de r2 "
@@ -24,6 +26,8 @@ public class Rectangulo_Uso {
 		Rectangulo r5=new Rectangulo(2.5, 2);
 		System.out.println(r5.calculaPerimetro()+" es el perimetro de r5 "
 				+ "y "+r5.calculaArea()+" es su area");*/
+		
+		
 	}
 
 }

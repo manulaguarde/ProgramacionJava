@@ -21,7 +21,7 @@ public class Coche {
 				//matricula es donde se guardará el dato y mat es el dato a guardar, por eso se llaman diferente aunque se refieran a lo mismo
 		public Coche(String mat, String mot, String col) { 
 			ruedas=4;
-			matricula=matricula;
+			matricula=mat;
 		}
 		
 		//Métodos getters: permiten LEER el valor de un atributo desde fuera de la clase
