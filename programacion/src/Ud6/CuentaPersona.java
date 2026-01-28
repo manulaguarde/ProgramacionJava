@@ -15,11 +15,24 @@ public class CuentaPersona {
 	public String toString() {
 		return "Numero de cuenta: "+numCuenta+"\nSaldo: "+saldo;
 	}
-	public void recibeAbonos(double abono) {
-		saldo+=abono;
+	public boolean recibeAbonos(double abono) {
+		if(abono>=0) {
+			saldo+=abono;
+			return true;
+		}
+		return false;
+		
 	}
-	public void pagaRecibos(double cantidad) {
-		saldo-=cantidad;
+	public boolean pagaRecibos(double cantidad) {
+		if(cantidad>=0) {
+			saldo-=cantidad;
+			return true;
+		}
+		return false;
 	}
+	public String dameCuenta() {
+		return numCuenta;
+	}
+	
 
 }
