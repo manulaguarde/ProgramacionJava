@@ -21,8 +21,31 @@ public class PersonaCuentas {
 		
 	}
 	
+	public boolean recibeAbonoEnCuenta(String numCuenta, double abono){
+		for(int i=0;i<numCuentasAsociadas;i++) {
+			if(this.cuentas[i].dameCuenta().equals(numCuenta)) {
+				if(this.cuentas[i].recibeAbonos(abono)) {
+					return true;
+				}
+			}
+		}
+		return false;
+		
+	}
+	public boolean efectuaPagoEnCuenta(String numCuenta, double pago){
+		for(int i=0;i<numCuentasAsociadas;i++) {
+			if(this.cuentas[i].dameCuenta().equals(numCuenta)) {
+				if(this.cuentas[i].pagaRecibos(pago)) {
+					return true;
+				}
+			}
+		}
+		return false;
+		
+	}
+	
 	public boolean esMoroso() {
-		for(int i=0;i<cuentas.length;i++) {
+		for(int i=0;i<numCuentasAsociadas;i++) {
 			if(cuentas[i].consultaSaldo()<0) {
 				return true;
 			}
@@ -35,14 +58,6 @@ public class PersonaCuentas {
 		return cuenta.consultaSaldo();
 		
 	}
-	
-	/*public String dameCuentas() {
-		for(int i=0;i<numCuentasAsociadas;i++) {
-			return cuentas[i].dameCuenta();
-		}
-		
-		
-	}*/
 	
 	public String toString() {
 		String cad="dni: "+dni+"\nCuentas: ";
