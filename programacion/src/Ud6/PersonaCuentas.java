@@ -72,5 +72,13 @@ public class PersonaCuentas {
 		return dni;
 		
 	}
+	public CuentaPersona dameCuenta(String numC) {
+		for(int i=0;i<numCuentasAsociadas;i++) {
+			if (numC.equals(cuentas[i].dameCuenta())) {
+				return cuentas[i];
+			}
+		}
+		return null;
+	}
 	
 }

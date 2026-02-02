@@ -11,20 +11,30 @@ public class PruebaCuentas {
 		PersonaCuentas []Personas=new PersonaCuentas[10];
 		int opcion;
 		
+		//Creo una cuenta asociada a p1 creando un objeto anónimo
+		Personas[1].añadirCuenta(new CuentaPersona("2")); //ejemplos en clase para entender mejor como funciona la relacion entre usuario-Persona y cuentas
+		Personas[1].dameCuenta("2").recibeAbonos(150); //como ingreso 
+		
 		do {
 			System.out.println("Ingresa una opcion:\n1.Añadir Persona\n2.Buscar Persona\n3.Añadir Cuenta"
 					+ "\n4.Realizar ingreso/pago\n5.Salir");
 			opcion=scanner.nextInt();
+			scanner.nextLine();
 			String dni="", numCuenta,operacion;
 			double cantidad=0;
 			switch (opcion) {
 				case 1:
-					System.out.println("Ingresa DNI");
-					dni=scanner.nextLine();
-					PersonaCuentas p=new PersonaCuentas(dni);
-					Personas[pos]= p;
-					System.out.println("Persona añadida correctamente");
-					pos++;
+					if (pos<10) {
+						System.out.println("Ingresa DNI");
+						dni=scanner.nextLine();
+						PersonaCuentas p=new PersonaCuentas(dni);
+						Personas[pos]= p;
+						System.out.println("Persona añadida correctamente");
+						pos++;
+					}
+					else {
+						System.out.println("La capacidad de usuarios esta llena");
+					}
 					break;
 				case 2: 
 					System.out.println("Ingresa DNI");
@@ -32,9 +42,6 @@ public class PruebaCuentas {
 					for(int i=0;i<Personas.length;i++) {
 						if(Personas[i].dameDni().equals(dni)) {
 							System.out.println(Personas[i]);
-						}
-						else {
-							System.out.println("No se encontro la persona");
 						}
 					}
 					break;
@@ -69,8 +76,8 @@ public class PruebaCuentas {
 								}else {
 									System.out.println("El pago no pudo efectuarse");
 								}
-								}
 							}
+						}
 					}else if(operacion.equalsIgnoreCase("i")) {
 						System.out.println("Ingrese la cantidad");
 						cantidad=scanner.nextDouble();
