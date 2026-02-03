@@ -11,14 +11,14 @@ public class Tienda {
 	}
 	public boolean darAlta(Producto prod) {
 		if(numProductos<10) {
-			productos[numProductos]=prod;
+			this.productos[numProductos]=prod;
 			numProductos++;
 			return true;
 		}
 		return false;
 	}
 	public Producto buscarProducto(String nom) {
-		for (int i=0;i<productos.length;i++) {
+		for (int i=0;i<numProductos;i++) {
 			if(productos[i].getNombre().equals(nom)) {
 				return productos[i];
 			}
@@ -26,7 +26,7 @@ public class Tienda {
 		return null;
 	}
 	public boolean modificarStock(String nom, int stock) {
-		for(int i=0;i<productos.length;i++) {
+		for(int i=0;i<numProductos;i++) {
 			if (productos[i].getNombre().equals(nom)) {
 				productos[i].setStock(stock);
 				return true;
@@ -36,12 +36,21 @@ public class Tienda {
 	}
 	public String toString() {
 		String cad="";
-		for (int i=0;i<productos.length;i++) {
+		for (int i=0;i<numProductos;i++) {
 			cad+=productos[i].toString()+"\n";
 		}
 		return cad;
 	}
-	
+	public void borraProducto(String nombre) {
+		for (int i=0;i<numProductos;i++) {
+			if(nombre.equals(productos[i].getNombre())) {
+				productos[i]=productos[i+1];
+				for(int j=i+1;j<numProductos-1;j++) {
+					productos[j]=productos[j+1];
+				}
+			}
+		}
+	}
 	
 }
 
