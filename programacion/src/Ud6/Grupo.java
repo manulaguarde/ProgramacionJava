@@ -3,18 +3,23 @@ package Ud6;
 public class Grupo {
 
 	private Alumno [] alumnos;
+	private int indice=0;
 	//private int numAlumno;
 	
 	public Grupo() {
-		alumnos=new Alumno[20];
+		alumnos=new Alumno[5];
 	}
-	public void darAltaAlumnos(Alumno alum) {
-		for (int i=0;i<alumnos.length;i++) {
-			this.alumnos[i]=alum;
+	public boolean darAltaAlumnos(Alumno alum) {
+		if(indice<alumnos.length) {
+			this.alumnos[indice]=alum;
+			indice++;
+			return true;
 		}
+		return false;
+		
 	}
 	public Alumno buscarAlumno(String nom) {
-		for(int i=0;i<alumnos.length;i++) {
+		for(int i=0;i<indice;i++) {
 			if(nom.equals(alumnos[i].getNombre())) {
 				return alumnos[i];
 			}
@@ -23,11 +28,15 @@ public class Grupo {
 	}
 	public boolean modificaNota(String nom, double nota) {
 		Alumno a=buscarAlumno(nom);
+		if(a==null) {
+			return false;
+		}
 		if(a.getNombre().equals(nom)) {
 			a.setNota(nota);
 			return true;
 		}
 		return false;
+		
 		
 	}
 	public double realizaMedia() {
@@ -44,6 +53,10 @@ public class Grupo {
 		for(int i=1;i<alumnos.length;i++) {
 			if(mejor<alumnos[i].getNota()) {
 				mejor=alumnos[i].getNota();
+			}
+		}
+		for (int i=0;i<alumnos.length;i++) {
+			if(mejor==alumnos[i].getNota()) {
 				cont++;
 			}
 		}
@@ -56,5 +69,12 @@ public class Grupo {
 		}
 		return mejoresAlumnos;
 		
+	}
+	public String toString() {
+		String cad="";
+		for(int i=0;i<this.indice;i++) {
+			cad+=alumnos[i].toString()+"\n\n";
+		}
+		return cad;
 	}
 }
