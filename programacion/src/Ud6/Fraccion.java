@@ -10,10 +10,10 @@ public class Fraccion {
 	}
 
 	public int getNumerador() {
-		return denominador;
+		return numerador;
 	}
 	public int getDenominador() {
-		return numerador;
+		return denominador;
 	}
 	public String toString() {
 		return this.numerador+"/"+this.denominador;
@@ -54,16 +54,18 @@ public class Fraccion {
 		return resultado;
 	}
 	public Fraccion simplifica(Fraccion f1) {
-		int mayor=f1.getNumerador();
+		int mayor=f1.getNumerador(), divisorComun=0;
 		if(mayor<f1.getDenominador()) {
 			mayor=f1.getDenominador();
 		}
 		for(int i=1;i<mayor/2;i++) {
 			if(f1.getNumerador()%i==0 && f1.getDenominador()%i==0) {
-				int divisorComun=i;
-				//int aux=divisorComun;
+				divisorComun=i;
 			}
 		}
-		//Fraccion fraccionSimple=new Fraccion()
+		int numSimple=f1.getNumerador()/divisorComun;
+		int denSimple=f1.getDenominador()/divisorComun;
+		Fraccion fraccionSimple=new Fraccion(numSimple,denSimple);
+		return fraccionSimple;
 	}
 }

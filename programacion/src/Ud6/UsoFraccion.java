@@ -29,7 +29,9 @@ public class UsoFraccion {
 					denominador=scanner.nextInt();
 					Fraccion f2=new Fraccion (numerador, denominador);
 					Fraccion resultado=f1.suma(f2);
-					System.out.println(f1+" + "+f2+" = "+resultado);
+					Fraccion fraccionSimplificada=resultado.simplifica(resultado);
+					
+					System.out.println(f1+" + "+f2+" = "+fraccionSimplificada);
 					break;
 				case 2:
 					System.out.println("Ingresa el numerador de la segunda fraccion");
@@ -38,7 +40,8 @@ public class UsoFraccion {
 					denominador=scanner.nextInt();
 					f2=new Fraccion (numerador, denominador);
 					resultado=f1.resta(f2);
-					System.out.println(f1+" - "+f2+" = "+resultado);
+					fraccionSimplificada=resultado.simplifica(resultado);
+					System.out.println(f1+" - "+f2+" = "+fraccionSimplificada);
 					break;
 				case 3:
 					System.out.println("Ingresa el numerador de la segunda fraccion");
@@ -47,7 +50,8 @@ public class UsoFraccion {
 					denominador=scanner.nextInt();
 					f2=new Fraccion (numerador, denominador);
 					resultado=f1.multiplica(f2);
-					System.out.println(f1+" x "+f2+" = "+resultado);
+					fraccionSimplificada=resultado.simplifica(resultado);
+					System.out.println(f1+" x "+f2+" = "+fraccionSimplificada);
 					break;
 				case 4:
 					System.out.println("Ingresa el numerador de la segunda fraccion");
@@ -56,9 +60,11 @@ public class UsoFraccion {
 					denominador=scanner.nextInt();
 					f2=new Fraccion (numerador, denominador);
 					resultado=f1.suma(f2);
-					System.out.println(f1+" / "+f2+" = "+resultado);
+					fraccionSimplificada=resultado.simplifica(resultado);
+					System.out.println(f1+" / "+f2+" = "+fraccionSimplificada);
 					break;
 				case 5:
+					
 					break;
 				case 6:
 					System.out.println("Has salido");
