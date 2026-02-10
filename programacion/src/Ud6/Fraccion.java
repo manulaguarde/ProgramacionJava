@@ -49,9 +49,7 @@ public class Fraccion {
 		return resultado;
 	}
 	public Fraccion divide(Fraccion f2) {
-		Fraccion fraccionInvertida=new Fraccion (f2.getDenominador(),f2.getNumerador());
-		Fraccion resultado=multiplica(fraccionInvertida);
-		return resultado;
+		return new Fraccion(numerador*f2.getDenominador(),denominador*f2.getNumerador());
 	}
 	public Fraccion simplifica(Fraccion f1) {
 		int mayor=f1.getNumerador(), divisorComun=0;

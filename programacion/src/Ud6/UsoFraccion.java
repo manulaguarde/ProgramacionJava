@@ -28,6 +28,8 @@ public class UsoFraccion {
 					System.out.println("Ingresa el denominador de la segunda fraccion");
 					denominador=scanner.nextInt();
 					Fraccion f2=new Fraccion (numerador, denominador);
+					//otra opcion
+					//Fraccion f2= new Fraccion (scanner.nextInt(),scanner.nextInt());
 					Fraccion resultado=f1.suma(f2);
 					Fraccion fraccionSimplificada=resultado.simplifica(resultado);
 					
