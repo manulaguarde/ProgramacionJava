@@ -18,15 +18,23 @@ public class ConjuntoLibros {
 		}
 		return false;
 	}
-	public boolean eliminarLibro(String cad) {
+	public boolean eliminarLibroPorTitulo(String titulo) {
 		for(int i=0;i<posicion;i++) {
-			if(libros[i].getTitulo().equalsIgnoreCase(cad) || libros[i].getAutor().equalsIgnoreCase(cad)) {
-				libros[i]=null;
+			if(libros[i].getTitulo().equalsIgnoreCase(titulo)) {
+				//libros[i]=libros[i+1];
+				for(int j=i;j<posicion-1;j++) {
+					libros[j]=libros[j+1];
+				}
+				libros[posicion-1]=null;
+				posicion--;
 				return true;
 			}
 		}
 		return false;
 		//for(int i=0;i<)
+	}
+	public boolean eliminarLibroPorAutor(String autor) {
+		return true;
 	}
 	public void mostrarMayorYMenorCalificados() {
 		int mayor=0,menor=10;
