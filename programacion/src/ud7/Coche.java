@@ -20,9 +20,9 @@ public class Coche extends Vehiculo{
 	}
 
 	
-	/*public String toString() {
-		return "Coche [caballos=" + caballos + "]";
-	}*/
+	public String toString() {
+		return super.toString()+"Coche [caballos=" + caballos + "]";//llamo al toString de la clase padre con super
+	}
 	
 	
 
