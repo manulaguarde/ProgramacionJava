@@ -1,7 +1,5 @@
 package Ud6;
 
-import java.util.Arrays;
-
 public class ConjuntoLibros2 {
 
 	private Libro[] libros;

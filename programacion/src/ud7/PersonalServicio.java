@@ -4,9 +4,9 @@ public class PersonalServicio extends Empleados {
 	
 	private String seccion;
 	
-	public PersonalServicio (String nombre, String apellidos, String dni, String estadoCivil,String añoIncorporacion,int numDespacho,String seccion) {
+	public PersonalServicio (String nombre, String apellidos, String dni, String estadoCivil,String numDespacho,int anioIncorporacion,String seccion) {
 		
-		super(nombre,apellidos,dni,estadoCivil,añoIncorporacion,numDespacho);
+		super(nombre,apellidos,dni,estadoCivil,numDespacho,anioIncorporacion);
 		this.seccion=seccion;
 	}
 

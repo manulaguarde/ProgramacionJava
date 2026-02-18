@@ -6,7 +6,7 @@ public class Estudiantes extends Persona{
 	
 	public Estudiantes(String nombre, String apellidos, String dni, String estadoCivil,String curso) {
 		
-		super(nombre,apellidos,dni,estadoCivil);
+		super(nombre,apellidos,dni,estadoCivil); //super es el constructor de la clase padre
 		this.curso=curso;
 	}
 
@@ -18,8 +18,10 @@ public class Estudiantes extends Persona{
 		this.curso = curso;
 	}
 
-	@Override
+	
+	//Se sobreescribe el metodo toString
 	public String toString() {
+		//primero recupero el toString de la clase padre y luego se sobreescribe
 		return super.toString()+" Estudiantes [curso=" + curso + "]";
 	}
 
