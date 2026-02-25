@@ -17,6 +17,9 @@ public class Profesores extends Empleados{
 	public void setDepto(String depto) {
 		this.depto = depto;
 	}
+	public void estoyExplicando() {
+		System.out.println("Estoy explicando");
+	}
 
 	@Override
 	public String toString() {
