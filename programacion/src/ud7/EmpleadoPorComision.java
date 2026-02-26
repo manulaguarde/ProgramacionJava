@@ -5,8 +5,8 @@ public class EmpleadoPorComision extends Empleado{
 	private int numVentas;
 	private double comision;
 	
-	public EmpleadoPorComision(String nombre, String apellido,int num_SS,double salario,int numVentas,double comision) {
-		super(nombre,apellido,num_SS,numVentas*comision);
+	public EmpleadoPorComision(String nombre, String apellido,String num_SS,int numVentas,double comision) {
+		super(nombre,apellido,num_SS,0);
 		this.numVentas=numVentas;
 		this.comision=comision;
 	}
@@ -25,6 +25,9 @@ public class EmpleadoPorComision extends Empleado{
 
 	public void setComision(double comision) {
 		this.comision = comision;
+	}
+	public double calcularSalario() {
+		return numVentas*comision;
 	}
 
 	@Override

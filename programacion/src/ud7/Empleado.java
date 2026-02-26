@@ -2,11 +2,10 @@ package ud7;
 
 public class Empleado {
 
-	private String nombre, apellido;
-	private int num_SS;
+	private String nombre, apellido, num_SS;
 	private double salarioBase;
 	
-	public Empleado(String nombre, String apellido,int num_SS,double salarioBase) {
+	public Empleado(String nombre, String apellido,String num_SS,double salarioBase) {
 		this.nombre=nombre;
 		this.apellido=apellido;
 		this.num_SS=num_SS;
@@ -30,13 +29,10 @@ public class Empleado {
 		this.apellido = apellido;
 	}
 
-	public int getNum_SS() {
+	public String getNum_SS() {
 		return num_SS;
 	}
 
-	public void setNum_SS(int num_SS) {
-		this.num_SS = num_SS;
-	}
 
 	public double getSalarioBase() {
 		return salarioBase;
