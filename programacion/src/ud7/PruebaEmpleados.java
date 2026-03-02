@@ -8,22 +8,25 @@ public class PruebaEmpleados {
 	public static void main(String[] args) {
 		Empleado[] empleados=new Empleado[4];
 		scanner=new Scanner(System.in);
+		int indice=0;
 		
 		System.out.println("Qué tipo de empleado quieres dar de alta?\n1.Base más comision\n2.Por comision");
 		String opcion=scanner.nextLine();
 		
 		if(opcion.equals("1")) {
-			
+			empleados[indice]=pedirDatosEmpleado(opcion);
+			indice++;
 		}
 		else if(opcion.equals("2")) {
-			
+			empleados[indice]=pedirDatosEmpleado(opcion);
+			indice++;
 		}
 		else {
 			System.out.println("Opción incorrecta");
 		}
 		
 	}
-	public Empleado pedirDatosEmpleado(String opcion) {
+	public static Empleado pedirDatosEmpleado(String opcion) {
 		System.out.println("Introduce nombre");
 		String nombre=scanner.nextLine();
 		System.out.println("Introduce apellido");
