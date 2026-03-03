@@ -2,35 +2,63 @@ package tresEnRaya;
 
 import java.util.Random;
 
-public class TresEnRaya {
-
+public class TresEnRaya2 {
 	private int[][] posiciones;
+	private char ficha;
 
-	public TresEnRaya() {
+	public TresEnRaya2() {
 		this.posiciones = new int[3][3];
+	}
+	public void setFicha(char ficha) {
+		this.ficha=ficha;
 	}
 
 	public void mueveJugador1(int pos) {
 		int i;
-		if (pos <= 3) {
-			i = 0;
-			for (int j = 0; j < 3; j++) {
-				if (j == pos - 1) {
-					posiciones[i][j] = 1;
+		if(ficha=='X') {
+			if (pos <= 3) {
+				i = 0;
+				for (int j = 0; j < 3; j++) {
+					if (j == pos - 1) {
+						posiciones[i][j] = 1;
+					}
+				}
+			} else if (pos <= 6 && pos > 3) {
+				i = 1;
+				for (int j = 0; j < 3; j++) {
+					if (j == pos - 4) {
+						posiciones[i][j] = 1;
+					}
+				}
+			} else {
+				i = 2;
+				for (int j = 0; j < 3; j++) {
+					if (j == pos - 7) {
+						posiciones[i][j] = 1;
+					}
 				}
 			}
-		} else if (pos <= 6 && pos > 3) {
-			i = 1;
-			for (int j = 0; j < 3; j++) {
-				if (j == pos - 4) {
-					posiciones[i][j] = 1;
+		}else {
+			if (pos <= 3) {
+				i = 0;
+				for (int j = 0; j < 3; j++) {
+					if (j == pos - 1) {
+						posiciones[i][j] = 2;
+					}
 				}
-			}
-		} else {
-			i = 2;
-			for (int j = 0; j < 3; j++) {
-				if (j == pos - 7) {
-					posiciones[i][j] = 1;
+			} else if (pos <= 6 && pos > 3) {
+				i = 1;
+				for (int j = 0; j < 3; j++) {
+					if (j == pos - 4) {
+						posiciones[i][j] = 2;
+					}
+				}
+			} else {
+				i = 2;
+				for (int j = 0; j < 3; j++) {
+					if (j == pos - 7) {
+						posiciones[i][j] = 2;
+					}
 				}
 			}
 		}
@@ -38,29 +66,53 @@ public class TresEnRaya {
 
 	public void mueveJugador2(int pos) {
 		int i;
-		if (pos <= 3) {
-			i = 0;
-			for (int j = 0; j < 3; j++) {
-				if (j == pos - 1) {
-					posiciones[i][j] = 2;
+		if(ficha=='X') {
+			if (pos <= 3) {
+				i = 0;
+				for (int j = 0; j < 3; j++) {
+					if (j == pos - 1) {
+						posiciones[i][j] = 1;
+					}
+				}
+			} else if (pos <= 6 && pos > 3) {
+				i = 1;
+				for (int j = 0; j < 3; j++) {
+					if (j == pos - 4) {
+						posiciones[i][j] = 1;
+					}
+				}
+			} else {
+				i = 2;
+				for (int j = 0; j < 3; j++) {
+					if (j == pos - 7) {
+						posiciones[i][j] = 1;
+					}
 				}
 			}
-		} else if (pos <= 6 && pos > 3) {
-			i = 1;
-			for (int j = 0; j < 3; j++) {
-				if (j == pos - 4) {
-					posiciones[i][j] = 2;
+		}else {
+			if (pos <= 3) {
+				i = 0;
+				for (int j = 0; j < 3; j++) {
+					if (j == pos - 1) {
+						posiciones[i][j] = 2;
+					}
 				}
-			}
-		} else {
-			i = 2;
-			for (int j = 0; j < 3; j++) {
-				if (j == pos - 7) {
-					posiciones[i][j] = 2;
+			} else if (pos <= 6 && pos > 3) {
+				i = 1;
+				for (int j = 0; j < 3; j++) {
+					if (j == pos - 4) {
+						posiciones[i][j] = 2;
+					}
+				}
+			} else {
+				i = 2;
+				for (int j = 0; j < 3; j++) {
+					if (j == pos - 7) {
+						posiciones[i][j] = 2;
+					}
 				}
 			}
 		}
-
 	}
 
 	public boolean movimientoValido(int pos) {
@@ -229,6 +281,5 @@ public class TresEnRaya {
 			}
 		}
 	}
-	
 	
 }
