@@ -82,5 +82,11 @@ public class Electrodomestico {
 		
 		return precioFinal;
 	}
+
+	@Override
+	public String toString() {
+		return "Electrodomestico [precio_base=" + precio_base + ", color=" + color + ", consumo_energ=" + consumo_energ
+				+ ", peso=" + peso + "]";
+	}
 	
 }
