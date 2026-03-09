@@ -4,7 +4,7 @@ public class Profesores extends Empleados{
 	
 	private String depto;
 	
-	public Profesores (String nombre, String apellidos, String dni, String estadoCivil,String numDespacho,int anioIncorporacion,String depto) {
+	public Profesores (String nombre, String apellidos, String dni, String estadoCivil, String numDespacho,int anioIncorporacion,String depto) {
 		
 		super(nombre,apellidos,dni,estadoCivil,numDespacho,anioIncorporacion);
 		this.depto=depto;

@@ -7,7 +7,7 @@ public class Empleados extends Persona{
 	
 	public Empleados(String nombre, String apellidos, String dni, String estadoCivil,String numDespacho,int anioIncorporacion) {
 		
-		super(nombre,apellidos,dni,estadoCivil);
+		super(nombre,apellidos,dni,estadoCivil,1500);
 		this.anioIncorporacion=anioIncorporacion;
 		this.numDespacho=numDespacho;
 	}
@@ -31,6 +31,12 @@ public class Empleados extends Persona{
 	@Override
 	public String toString() {
 		return super.toString()+" Empleados [añoIncorporacion=" + anioIncorporacion + ", numDespacho=" + numDespacho + "]";
+	}
+
+	@Override
+	public double calculaSalario() {
+		// TODO Auto-generated method stub
+		return this.salario;
 	}
 	
 }

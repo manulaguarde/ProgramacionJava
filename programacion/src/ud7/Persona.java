@@ -1,18 +1,24 @@
 package ud7;
 
-public class Persona {
+//declaramos la clase como abstracta
+public abstract class Persona {
 
 	
 
 	private String nombre,apellidos,dni,estadoCivil;
+	protected double salario;
 	
-	public Persona(String nombre, String apellidos, String dni, String estadoCivil) {
+	public Persona(String nombre, String apellidos, String dni, String estadoCivil, double salario) {
 		super();
 		this.nombre = nombre;
 		this.apellidos = apellidos;
 		this.dni = dni;
 		this.estadoCivil = estadoCivil;
+		this.salario=salario;
 	}
+	
+	//definimos un método abstracto - No tiene cuerpo
+	public abstract double calculaSalario();
 
 	public String getNombre() {
 		return nombre;

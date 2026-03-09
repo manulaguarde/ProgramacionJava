@@ -6,8 +6,12 @@ public class Estudiantes extends Persona{
 	
 	public Estudiantes(String nombre, String apellidos, String dni, String estadoCivil,String curso) {
 		
-		super(nombre,apellidos,dni,estadoCivil); //super es el constructor de la clase padre
+		super(nombre,apellidos,dni,estadoCivil,0); //super es el constructor de la clase padre
 		this.curso=curso;
+	}
+	
+	public double calculaSalario() {
+		return this.salario;
 	}
 
 	public String getCurso() {
