@@ -16,7 +16,7 @@ public abstract class Figura {
 	public abstract double obtenerVolumen();
 	
 	@Override
-	public String toString() {
+	public final String toString() { //Las clasees hijas no pueden sobreescribir el método
 		return "Nombre de la figura= " + nombre+". Area= "+obtenerArea()+". Volumen= "+obtenerVolumen();
 	}
 	

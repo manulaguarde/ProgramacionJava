@@ -1,20 +1,22 @@
 package ud8;
 
-public class Cilindro extends Circulo {
+public class Cilindro extends Figura {
 	
 	private double altura;
+	private Circulo circulo;
 	
-	public Cilindro (String nombre, double radio, double altura) {
-		super(nombre,radio);
+	public Cilindro (String nombre, Circulo c, double altura) {
+		super(nombre);
 		this.altura=altura;
+		this.circulo=c;
 	}
 
 	public double obtenerArea() {
-		return Math.round(super.obtenerArea()*2+2*Math.PI*this.radio*this.altura);
+		return Math.round(circulo.obtenerArea()*2+circulo.damePerimetro()*this.altura);
 	}
 	
 	public double obtenerVolumen() {
-		return super.obtenerArea()*this.altura;
+		return circulo.obtenerArea()*this.altura;
 	}
 	
 	

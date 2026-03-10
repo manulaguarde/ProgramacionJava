@@ -2,11 +2,13 @@ package ud8;
 
 public class Circulo extends Figura {
 	
-	protected double radio;
+	private double radio;
+	private Punto centro;
 
-	public Circulo(String nombre, double radio) {
+	public Circulo(String nombre, double radio, Punto p) {
 		super(nombre);
 		this.radio=radio;
+		this.centro=p;
 	}
 	
 	public double obtenerArea() {
@@ -15,6 +17,10 @@ public class Circulo extends Figura {
 	}
 	public double obtenerVolumen() {
 		return 0;
+	}
+	
+	public double damePerimetro() {
+		return 2*Math.PI*this.radio;
 	}
 
 }
