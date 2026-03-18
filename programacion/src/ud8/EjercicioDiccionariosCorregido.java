@@ -12,7 +12,6 @@ public class EjercicioDiccionariosCorregido {
 		HashMap<String,Integer>palabras=new HashMap<String,Integer>();
 		ArrayList<String>pal=new ArrayList<String>();
 		String palabra;
-		int masRepetida=0,repite=0;
 		do {
 			System.out.println("Ingresa una palabra, cuando no quieras ingresar más ingresa salir");
 			palabra=scanner.nextLine();
