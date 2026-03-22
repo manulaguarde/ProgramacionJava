@@ -6,8 +6,12 @@ public class Perro extends Animal {
 	private String microchip;
 	
 	public Perro(String nombre, String fechaNacimiento, double peso, String raza, String microchip) {
-		super(nombre,fechaNacimiento,peso,"");
-		this.raza=raza;
+		super(nombre,fechaNacimiento,peso);
+		if(raza.equalsIgnoreCase("Pastor Aleman")||raza.equalsIgnoreCase("Husky")||raza.equalsIgnoreCase("Fox Terrier"))
+			this.raza=raza;
+		else
+			this.raza="Pastor Aleman";
+		
 		this.microchip=microchip;
 		
 	}

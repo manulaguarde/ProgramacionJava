@@ -6,8 +6,11 @@ public class Pajaro extends Animal{
 	private boolean cantor;
 	
 	public Pajaro(String nombre, String fechaNacimiento, double peso,String especie, boolean cantor) {
-		super(nombre,fechaNacimiento,peso,"");
-		this.especie=especie;
+		super(nombre,fechaNacimiento,peso);
+		if(especie.equalsIgnoreCase("Canario")||especie.equalsIgnoreCase("Periquito")||especie.equalsIgnoreCase("Agapornis"))
+			this.especie=especie;
+		else
+			this.especie="Canario";
 		this.cantor=cantor;
 	}
 

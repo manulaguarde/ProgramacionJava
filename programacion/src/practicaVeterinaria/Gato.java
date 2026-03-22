@@ -6,8 +6,11 @@ public class Gato extends Animal {
 	private String microchip;
 	
 	public Gato(String nombre, String fechaNacimiento, double peso, String raza, String microchip) {
-		super(nombre,fechaNacimiento,peso,"");
-		this.raza=raza;
+		super(nombre,fechaNacimiento,peso);
+		if(raza.equalsIgnoreCase("Comun")||raza.equalsIgnoreCase("Siames")||raza.equalsIgnoreCase("Persa")||raza.equalsIgnoreCase("Angora")||raza.equalsIgnoreCase("Scottish Fold"))
+			this.raza=raza;
+		else
+			this.raza="Comun";
 		this.microchip=microchip;
 		
 	}

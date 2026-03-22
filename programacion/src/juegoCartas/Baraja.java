@@ -14,6 +14,11 @@ public class Baraja {
 			for(int i=0;i<40;i++) {
 				listaCartas.add(new Carta(i));
 			}
+		}else {
+			for(int i=0;i<40;i++) {
+				listaCartas.add(new Carta(i));
+				listaCartas.add(new Carta(i));
+			}
 		}
 	}
 }

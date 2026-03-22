@@ -7,12 +7,12 @@ public abstract class Animal {
 	private double peso;
 	private String comentarios;
 	
-	public Animal(String nombre,String fechaNac, double peso, String comentario) {
+	public Animal(String nombre,String fechaNac, double peso) {
 		
 		this.nombre=nombre;
 		this.fechaNacimiento=fechaNac;
 		this.peso=peso;
-		this.comentarios=comentario;
+		this.comentarios="";
 	}
 
 	public double getPeso() {

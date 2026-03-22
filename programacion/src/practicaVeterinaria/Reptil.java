@@ -6,8 +6,11 @@ public class Reptil extends Animal {
 	private boolean venenoso;
 	
 	public Reptil(String nombre, String fechaNacimiento, double peso,String especie, boolean venenoso) {
-		super(nombre, fechaNacimiento, peso,"");
-		this.especie=especie;
+		super(nombre, fechaNacimiento, peso);
+		if(especie.equalsIgnoreCase("Tortuga")||especie.equalsIgnoreCase("Iguana")||especie.equalsIgnoreCase("Dragon de Comodo"))
+			this.especie=especie;
+		else
+			this.especie="Tortuga";
 		this.venenoso=venenoso;
 	}
 
