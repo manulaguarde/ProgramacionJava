@@ -37,7 +37,7 @@ public class ClinicaVeterinaria {
 	public String toString() {
 		String cad="";
 		for(Animal animal:animales) {
-			cad+=animal.toString()+"\n";
+			cad+=animal.dameDatosAnimal()+"\n";
 		}
 		return cad;
 	}
