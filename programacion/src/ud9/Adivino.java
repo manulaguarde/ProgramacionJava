@@ -24,7 +24,7 @@ import javax.swing.JTextField;
 public class Adivino extends JFrame implements ActionListener {
 	Random genAle=new Random();
 	private JPanel panel;
-	private JLabel piensaNum, tuNumEs;
+	private JLabel piensaNum;
 	private JTextField campoNumAdivinado;
 	private JButton empieza,mayor,menor,acertaste;
 	private int max,min,num;
@@ -32,7 +32,6 @@ public class Adivino extends JFrame implements ActionListener {
 	public Adivino() {
 		panel=new JPanel();
 		piensaNum=new JLabel("Piensa un número del 1 al 100");
-		//tuNumEs=new JLabel("Tu número es");
 		campoNumAdivinado=new JTextField(30);
 		mayor=new JButton("Es Mayor");
 		menor= new JButton("Es Menor");
@@ -40,7 +39,7 @@ public class Adivino extends JFrame implements ActionListener {
 		empieza=new JButton("Has click aqui cuando estés listo");
 		max=100;
 		min=0;
-		num=genAle.nextInt(101);
+		num=genAle.nextInt(100)+1;
 		
 		this.add(panel);
 		panel.add(piensaNum);

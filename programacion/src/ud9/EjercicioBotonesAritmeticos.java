@@ -27,6 +27,7 @@ public class EjercicioBotonesAritmeticos extends JFrame implements ActionListene
 		campo2= new JTextField(10);
 		resultado= new JLabel("Resultado");
 		campoResul= new JTextField(10);
+		campoResul.setEditable(false); //hace que el campo resultado no pueda ser editable
 		
 		panel.add(num1);
 		panel.add(campo1);
