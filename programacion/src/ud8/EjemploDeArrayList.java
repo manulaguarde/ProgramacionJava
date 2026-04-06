@@ -28,8 +28,10 @@ public class EjemploDeArrayList {
 		System.out.println(numeros.indexOf(10)); //comprobamos en que posición (en que índice) está el 10 - si no está aparece un -1
 		
 		numeros.remove(0);//elimina por índice, en este caso elimina el 5
-		
+		int num=numeros.remove(1);
+		System.out.println(num);
 		numeros.clear(); //borra toda la coleccion
+		
 		System.out.println(numeros); //lista vacía
 		
 		
