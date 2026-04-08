@@ -7,22 +7,20 @@ public class Libro {
 	private int numPaginas;
 	private int calificacion;
 	
-	public Libro(String titulo, String autor, int numPaginas, int calificacion) {
+	public Libro(String titulo, String autor, int numPaginas, int calificacion)throws CalificacionNoCorrecta  {
 		this.titulo=titulo;
 		this.autor=autor;
 		this.numPaginas=numPaginas;
-		try {
+		setCalificacion(calificacion);
+		/*try {
 			validarCalificacion(calificacion);
 			this.calificacion=calificacion;
 		}catch(CalificacionNoCorrecta e) {
 			System.out.println(e.getMessage());
-		}
+			this.calificacion=0;
+		}*/
 	}
-	public static void validarCalificacion(int calif)throws CalificacionNoCorrecta {
-		if((calif<0) || calif>10) {
-			throw new CalificacionNoCorrecta("La calificación debe estar entre 0 y  10");
-		}
-	}
+
 	public String getTitulo() {
 		return titulo;
 	}
@@ -45,8 +43,12 @@ public class Libro {
 	public void setNumPaginas(int numPag) {
 		this.numPaginas=numPag;
 	}
-	public void setCalificacion(int cali) {
-		this.calificacion=cali;
+	public void setCalificacion(int cali)throws CalificacionNoCorrecta  {
+		if((cali>=0) && (cali<=10)) {
+			this.calificacion=cali;
+		}else {
+			throw new CalificacionNoCorrecta("La calificación es incorrecta debe estar entre 0 y 10");
+		}
 	}
 	public String toString() {
 		String libro="Titulo: "+titulo+"\nAutor: "+autor+"\nNumero de páginas: "+numPaginas+"\nCalificacion: "+calificacion+"\n";
