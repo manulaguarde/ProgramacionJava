@@ -64,16 +64,18 @@ public class Calculadora extends JFrame implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		String operador="";
-		//if(e.getSource()==botones[0]||e.getSource()==botones[1]||e.getSource()==botones[2]||e.getSource()==botones[4])
-		for(int i=0;i<botones.length;i++) {
-			if(e.getSource()==botones[i] && e.getSource()!=botones[botones.length-2]) {
-				operacion.setText(operacion.getText()+botones[i].getActionCommand());
-			}
+		double num1=0;
+		String comando=e.getActionCommand();
+		
+		if("0123456789,".contains(comando)) {
+			operacion.setText(comando);
+		}else if ("+-x/".contains(comando)) {
+	        num1 = Double.parseDouble(operacion.getText().replace(",", "."));
+	        operador = comando;
 		}
-		if(e.getSource()==botones[3]||e.getSource()==botones[7]||e.getSource()==botones[11]||e.getSource()==botones[15]) {
+		else if(comando.equals("=")) {
 			
 		}
-		//System.out.println(suma);
 		
 	}
 	
