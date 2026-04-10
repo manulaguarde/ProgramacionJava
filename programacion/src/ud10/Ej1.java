@@ -18,8 +18,8 @@ public class Ej1 {
 		//String fichero=scanner.nextLine();
 		//EscribeFicheroNumRandom10(fichero);
 		
-		System.out.println(SumaFicheroInt10("numerosRandom.txt"));
-		
+		System.out.println(SumaFicheroInt10("numerosAleatorios.txt"));
+		//SumaFicheroInt10("numerosAleatorios.txt");
 		
 		
 
@@ -35,7 +35,6 @@ public class Ej1 {
 			
 			salida.close();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			System.out.println(e.getMessage());
 		}
 	}
@@ -45,18 +44,18 @@ public class Ej1 {
 		try {
 			entrada=new FileReader(nomFichero);
 			while(car!=-1) {
-				entrada.read();
+				car=entrada.read();
 				if(car!=-1) {
-					cad+=(char)car+" ";
+					cad+=(char)car+"";
 				}
 				
 				
 			}
-			String[]lista=cad.split(" ");
-			/*for (int i=0;i<cad.length();i++) {
-				suma+=(int)cad[i];
-			}*/
+			//System.out.println(cad);
+			String[]lista=cad.split("\n");
+
 			for(String num:lista) {
+				//System.out.println(num);
 				suma+=Integer.parseInt(num);
 			}
 			
