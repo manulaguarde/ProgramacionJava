@@ -28,7 +28,10 @@ public class UsoClinicaVeterinaria {
 				case "2":
 					System.out.println("Introduce el nombre del animal que estas buscando");
 					String nombre=scanner.nextLine();
-					System.out.println(clinica1.buscaAnimal(nombre));
+					if(clinica1.buscaAnimal(nombre)!=null)
+						System.out.println(clinica1.buscaAnimal(nombre));
+					else
+						System.out.println("No se encuentra el animal");
 					break;
 				case "3":
 					System.out.println("Introduce el nombre");
