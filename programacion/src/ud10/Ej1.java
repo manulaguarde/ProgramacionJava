@@ -16,15 +16,15 @@ public class Ej1 {
 		scanner=new Scanner(System.in);
 		//System.out.println("Escribe el nombre del fichero");
 		//String fichero=scanner.nextLine();
-		//EscribeFicheroNumRandom10(fichero);
+		//escribeFicheroNumRandom10(fichero);
 		
-		System.out.println(SumaFicheroInt10("numerosAleatorios.txt"));
-		//SumaFicheroInt10("numerosAleatorios.txt");
+		System.out.println(sumaFicheroInt10("numerosAleatorios.txt"));
+		//sumaFicheroInt10("numerosAleatorios.txt");
 		
 		
 
 	}
-	public static void EscribeFicheroNumRandom10(String nomFichero) {
+	public static void escribeFicheroNumRandom10(String nomFichero) {
 		Random numAle=new Random();
 		try {
 			salida=new FileWriter(nomFichero);
@@ -38,7 +38,7 @@ public class Ej1 {
 			System.out.println(e.getMessage());
 		}
 	}
-	public static int SumaFicheroInt10(String nomFichero) {
+	public static int sumaFicheroInt10(String nomFichero) {
 		int suma=0,car=0;
 		String cad="";
 		try {
