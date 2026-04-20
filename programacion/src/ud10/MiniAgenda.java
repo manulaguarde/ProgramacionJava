@@ -25,7 +25,7 @@ public class MiniAgenda extends JFrame implements ActionListener {
 	private JTextField diaTexto,mesTexto,anioTexto;
 	private JButton anterior, siguiente;
 	private LocalDate hoy=LocalDate.now();
-	private String contenido, nombreArchivo="";
+	private String contenido, nombreArchivo;
 	
 	public MiniAgenda() {
 		
@@ -132,6 +132,7 @@ public class MiniAgenda extends JFrame implements ActionListener {
 		
 	}
 	private void comprobarFichero() {
+		nombreArchivo="";
 		String dia,mes;
 		File archivo;
 		FileReader fileReader;
