@@ -14,12 +14,12 @@ public class Ej1 {
 	static Scanner scanner;
 	public static void main(String[] args) {
 		scanner=new Scanner(System.in);
-		//System.out.println("Escribe el nombre del fichero");
-		//String fichero=scanner.nextLine();
-		//escribeFicheroNumRandom10(fichero);
+		System.out.println("Escribe el nombre del fichero");
+		String fichero=scanner.nextLine();
+		escribeFicheroNumRandom10(fichero);
 		
-		System.out.println(sumaFicheroInt10("numerosAleatorios.txt"));
-		//sumaFicheroInt10("numerosAleatorios.txt");
+		System.out.println("La suma de los números del fichero es: "+sumaFicheroInt10(fichero));
+		
 		
 		
 

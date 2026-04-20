@@ -14,10 +14,10 @@ public class Ej5 {
 
 	public static void main(String[] args) {
 		scanner=new Scanner(System.in);
-		//System.out.println("Escribe el nombre del fichero");
-		//String fichero=scanner.nextLine();
-		//escribeFicheroTexto(fichero);
-		leeFicheroTexto("texto.txt");
+		System.out.println("Escribe el nombre del fichero");
+		String fichero=scanner.nextLine();
+		escribeFicheroTexto(fichero);
+		leeFicheroTexto(fichero);
 		
 		
 

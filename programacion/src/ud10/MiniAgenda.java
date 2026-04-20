@@ -57,8 +57,13 @@ public class MiniAgenda extends JFrame implements ActionListener {
 		panel.add(anterior);
 		panel.add(siguiente);
 		
+		
+		
+		
 		anterior.addActionListener(this);
 		siguiente.addActionListener(this);
+		
+		comprobarFichero();
 		
 		this.setBounds(100, 100, 350, 200);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -70,8 +75,8 @@ public class MiniAgenda extends JFrame implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		
-		comprobarFichero();
-
+		
+		agendar();
 		if (e.getSource()==siguiente) {
 			if(mesTexto.getText().equals("1")||mesTexto.getText().equals("3")||mesTexto.getText().equals("5")||mesTexto.getText().equals("7")
 					||mesTexto.getText().equals("8")||mesTexto.getText().equals("10")||mesTexto.getText().equals("12")) {
@@ -102,6 +107,7 @@ public class MiniAgenda extends JFrame implements ActionListener {
 					mesTexto.setText((Integer.parseInt(mesTexto.getText())+1)+"");
 				}
 			}
+		
 			
 		}
 		
@@ -126,9 +132,9 @@ public class MiniAgenda extends JFrame implements ActionListener {
 					anioTexto.setText((Integer.parseInt(anioTexto.getText())-1)+"");
 				}
 			}
+			
 		}
 		comprobarFichero();
-		agendar();
 		
 	}
 	private void comprobarFichero() {
