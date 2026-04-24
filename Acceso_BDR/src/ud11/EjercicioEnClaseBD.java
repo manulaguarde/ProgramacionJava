@@ -31,7 +31,7 @@ public class EjercicioEnClaseBD {
 						System.out.println("Ingresa edad");
 						String edad=scanner.nextLine();
 						
-						String sql="insert into clientes values ("+id+","+nombre+","+Integer.parseInt(edad)+")";
+						String sql="insert into clientes values ('"+id+"','"+nombre+"',"+Integer.parseInt(edad)+")";
 						int row=statementSQL.executeUpdate(sql);
 						System.out.println("se han afectado a "+row+" filas");
 						
@@ -44,7 +44,7 @@ public class EjercicioEnClaseBD {
 						System.out.println("Ingresa la edad nueva");
 						edad=scanner.nextLine();
 						
-						sql="update clientes set nombre="+nombre+",edad="+Integer.parseInt(edad)+" where id="+id;
+						sql="update clientes set nombre='"+nombre+"',edad="+Integer.parseInt(edad)+" where id='"+id+"'";
 						row=statementSQL.executeUpdate(sql);
 						System.out.println("se han afectado a "+row+" filas");
 						
@@ -53,7 +53,7 @@ public class EjercicioEnClaseBD {
 						System.out.println("Ingresa el id");
 						id=scanner.nextLine();
 						
-						sql="delete from clientes where id="+id;
+						sql="delete from clientes where id='"+id+"'";
 						row=statementSQL.executeUpdate(sql);
 						System.out.println("se han afectado a "+row+" filas");
 						
