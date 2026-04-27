@@ -2,6 +2,7 @@ package ud11;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Scanner;
@@ -13,6 +14,7 @@ public class EjercicioEnClaseBD {
 		String uri="jdbc:mysql://localhost:3306/bd_clientes";
 		String user="admin";
 		String passwd="1234";
+		String consultaSql="", sql;
 		
 		String opcion;
 		
@@ -20,7 +22,7 @@ public class EjercicioEnClaseBD {
 			Connection connection=DriverManager.getConnection(uri,user,passwd);
 			Statement statementSQL =connection.createStatement();
 			do {
-				System.out.println("Ingresa una opción:\n1.Insertar\n2.Actualizar por id\n3.Borrar por id\n4.Salir");
+				System.out.println("Ingresa una opción:\n1.Insertar\n2.Actualizar por id\n3.Borrar por id\n4.Consulta por id\n5.Salir");
 				opcion=scanner.nextLine();
 				switch (opcion) {
 					case "1":
@@ -30,10 +32,14 @@ public class EjercicioEnClaseBD {
 						String nombre=scanner.nextLine();
 						System.out.println("Ingresa edad");
 						String edad=scanner.nextLine();
+						if(existeCliente(id, statementSQL)) {
+							System.out.println("El id ya existe");
+						}else {
+							sql="insert into clientes values ('"+id+"','"+nombre+"',"+edad+")";
+							int row=statementSQL.executeUpdate(sql);
+							System.out.println("se han afectado a "+row+" filas");
+						}
 						
-						String sql="insert into clientes values ('"+id+"','"+nombre+"',"+Integer.parseInt(edad)+")";
-						int row=statementSQL.executeUpdate(sql);
-						System.out.println("se han afectado a "+row+" filas");
 						
 						break;
 					case "2":
@@ -43,34 +49,67 @@ public class EjercicioEnClaseBD {
 						nombre=scanner.nextLine();
 						System.out.println("Ingresa la edad nueva");
 						edad=scanner.nextLine();
-						
-						sql="update clientes set nombre='"+nombre+"',edad="+Integer.parseInt(edad)+" where id='"+id+"'";
-						row=statementSQL.executeUpdate(sql);
-						System.out.println("se han afectado a "+row+" filas");
-						
+						if(!existeCliente(id, statementSQL)) {
+							System.out.println("El id no se encuentra");
+						}else {
+							sql="update clientes set nombre='"+nombre+"',edad="+edad+" where id='"+id+"'";
+							int row=statementSQL.executeUpdate(sql);
+							System.out.println("se han afectado a "+row+" filas");
+							
+						}
+
 						break;
 					case "3":
 						System.out.println("Ingresa el id");
 						id=scanner.nextLine();
-						
-						sql="delete from clientes where id='"+id+"'";
-						row=statementSQL.executeUpdate(sql);
-						System.out.println("se han afectado a "+row+" filas");
+						if(!existeCliente(id, statementSQL)) {
+							System.out.println("El id no se encuentra");
+						}else {
+							sql="delete from clientes where id='"+id+"'";
+							int row=statementSQL.executeUpdate(sql);
+							System.out.println("se han afectado a "+row+" filas");
+						}
 						
 						break;
 					case "4":
+						System.out.println("Ingresa el id");
+						id=scanner.nextLine();
+						consultaSql="select nombre,edad from clientes where id='"+id+"'";
+						ResultSet resultSet=statementSQL.executeQuery(consultaSql);
+						while(resultSet.next()) {
+							System.out.println("Nombre: "+resultSet.getString("nombre")+" Edad: "+resultSet.getString("edad"));
+						}
+						break;
+					case "5":
 						System.out.println("Has salido");
 						break;
 					default:
 						System.out.println("Opción incorrecta");
 				}
 				
-			}while(!opcion.equals("4"));
+			}while(!opcion.equals("5"));
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 		}
 
 
+	}
+	
+	public static boolean existeCliente(String id, Statement statement) {
+		String consulta="select id from clientes where id='"+id+"'";
+		try {
+			ResultSet resultSet=statement.executeQuery(consulta);
+			while(resultSet.next()) {
+				String identificacion=resultSet.getString("id");
+				if (identificacion.equals(id)) {
+					return true;
+				}
+			}
+			
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+		return false;
 	}
 
 }
