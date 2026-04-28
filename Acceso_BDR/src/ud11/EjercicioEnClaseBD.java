@@ -99,16 +99,15 @@ public class EjercicioEnClaseBD {
 		String consulta="select id from clientes where id='"+id+"'";
 		try {
 			ResultSet resultSet=statement.executeQuery(consulta);
-			while(resultSet.next()) {
-				String identificacion=resultSet.getString("id");
-				if (identificacion.equals(id)) {
-					return true;
-				}
+			//entra en el if si la consulta devuelve al menos una fila
+			if(resultSet.next()) {
+				return true;
 			}
 			
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 		}
+		//si no devuelve la consulta ni una fila retorna False
 		return false;
 	}
 
