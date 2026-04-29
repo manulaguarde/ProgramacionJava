@@ -33,24 +33,29 @@ public class Grupo {
 		
 		public void insertaAlumnoEnBD() {
 
+			Statement statement;
 			String sql="";
+			int row=0;
+			try {
+				statement=conectaConBDR().createStatement();
 				for(Alumno alumno:alumnos) {
-					sql+="insert into alumnos values ('"+alumno.getNombre()+"',"+alumno.getEdad()+","+alumno.getCalificacion()+",";
+					sql="insert into alumnos (nombre, edad, calificacion) values ('"+alumno.getNombre()+"',"+alumno.getEdad()+","+alumno.getCalificacion()+")";
+					System.out.println(sql);
+					row+=statement.executeUpdate(sql);
 				}
-				
-				try {
-					int row=conectaConBDR().executeUpdate(sql);
-				} catch (SQLException e) {
-					System.out.println(e.getMessage());
-				}
-			
+			} catch (SQLException e) {
+				System.out.println(e.getMessage());
+			}
+			System.out.println("Rows afectadas: "+row);
+						
 		}
 		
 		public void consultaBD() {
 			String sql="select * from alumnos";
 			
 			try {
-				ResultSet resultSet=conectaConBDR().executeQuery(sql);
+				Statement statement=conectaConBDR().createStatement();
+				ResultSet resultSet=statement.executeQuery(sql);
 				while(resultSet.next()) {
 					System.out.println("ID:"+resultSet.getString("id")+" Alumno:"+resultSet.getString("nombre")
 					+" Edad:"+resultSet.getString("edad")+" Calificación:"+resultSet.getString("calificacion"));
@@ -60,20 +65,20 @@ public class Grupo {
 			}
 		}
 		
-		private Statement conectaConBDR() {
+		private Connection conectaConBDR() {
 			String uri="jdbc:mysql://localhost:3306/grupo_alumno";
 			String usuario="admin";
 			String pwd="1234";
-			Statement statement=null;
-			Connection connection;
+			
+			Connection connection=null;
 			try {
 				connection = DriverManager.getConnection(uri,usuario,pwd);
-				statement=connection.createStatement();
+				//statement=connection.createStatement();
 			} catch (SQLException e) {
 				System.out.println(e.getMessage());
 			}
 			
-			return statement;
+			return connection;
 			
 		}
 

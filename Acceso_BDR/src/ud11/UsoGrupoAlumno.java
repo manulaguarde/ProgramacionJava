@@ -14,10 +14,25 @@ public class UsoGrupoAlumno {
 			opcion=scanner.nextLine();
 			switch(opcion) {
 			case "1":
+				System.out.println("Ingresa nombre:");
+				String nombre=scanner.nextLine();
+				System.out.println("Ingresa edad:");
+				String edad=scanner.nextLine();
+				System.out.println("Ingresa calificación");
+				String calificacion=scanner.nextLine();
+				if(Integer.parseInt(edad)<17 || Integer.parseInt(edad)>99) {
+					System.out.println("La edad tiene que ser entre 17 y 99 años");
+				}else if(Double.parseDouble(calificacion)<0 || Double.parseDouble(calificacion)>10){
+					System.out.println("La calificación debe estar entre 0 y 10");
+				}else {
+					g1.insertaAlumnoLista(nombre, Integer.parseInt(edad), Double.parseDouble(calificacion));
+				}
 				break;
 			case "2":
+				g1.insertaAlumnoEnBD();
 				break;
 			case "3":
+				g1.consultaBD();
 				break;
 			case "4":
 				break;
